@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>hangman.py</title>
+<title>GuessTheWord.py</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
 .ln { color: #606366; font-weight: normal; font-style: normal; }
@@ -14,14 +14,14 @@
 <TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
 <TR><TD><CENTER>
 <FONT FACE="Arial, Helvetica" COLOR="#000000">
-hangman.py</FONT>
+GuessTheWord.py</FONT>
 </center></TD></TR></TABLE>
 <pre>
 <span class="s0">import </span><span class="s1">random 
 </span><span class="s0">import </span><span class="s1">json 
  
  
-</span><span class="s0">class </span><span class="s1">Hangman: 
+</span><span class="s0">class </span><span class="s1">GuessTheWord: 
  
     </span><span class="s0">def </span><span class="s1">__init__(self): 
         self.secret_word = self.make_word() 
@@ -35,11 +35,11 @@ hangman.py</FONT>
         </span><span class="s0">return </span><span class="s1">data[</span><span class="s2">'data'</span><span class="s1">][word_num] 
  
     </span><span class="s0">def </span><span class="s1">play_game(self): 
-        print(</span><span class="s2">'Would you like to play Hangman?'</span><span class="s1">) 
+        print(</span><span class="s2">'Would you like to play GuessTheWord? (Yes or No)'</span><span class="s1">) 
         player_input = input() 
         misses = </span><span class="s3">0</span><span class="s1"> 
  
-        </span><span class="s0">if </span><span class="s1">player_input </span><span class="s0">not in </span><span class="s1">(</span><span class="s2">'No'</span><span class="s0">, </span><span class="s2">'no'</span><span class="s1">): 
+        </span><span class="s0">while </span><span class="s1">player_input </span><span class="s0">not in </span><span class="s1">(</span><span class="s2">'No'</span><span class="s0">, </span><span class="s2">'no'</span><span class="s1">): 
             print(</span><span class="s2">'There are ' </span><span class="s1">+ str(len(self.secret_word)) + </span><span class="s2">' letters in the secret word.'</span><span class="s1">) 
             </span><span class="s0">while </span><span class="s1">misses &lt;= </span><span class="s3">6</span><span class="s1">: 
                 </span><span class="s0">if </span><span class="s1">misses &lt; </span><span class="s3">6</span><span class="s1">: 
@@ -54,10 +54,17 @@ hangman.py</FONT>
                     </span><span class="s0">break</span><span class="s1"> 
  
             </span><span class="s0">if </span><span class="s2">'?' </span><span class="s0">not in </span><span class="s1">str(self.display): 
-                print(</span><span class="s2">'Congratulations! You have won!'</span><span class="s1">) 
+                print(</span><span class="s2">'</span><span class="s0">\n</span><span class="s2">Congratulations! You have won!'</span><span class="s1">) 
             </span><span class="s0">else</span><span class="s1">: 
                 print(</span><span class="s2">'</span><span class="s0">\n</span><span class="s2">Sorry, the word was ' </span><span class="s1">+ self.secret_word + </span><span class="s2">'.'</span><span class="s1">) 
                 print(</span><span class="s2">'Better luc next time!'</span><span class="s1">) 
+ 
+            print(</span><span class="s2">'</span><span class="s0">\n</span><span class="s2">Would you like to play GuessTheWord again? (Yes or No)'</span><span class="s1">) 
+            player_input = input() 
+            misses = </span><span class="s3">0</span><span class="s1"> 
+            self.secret_word = self.make_word() 
+            self.display = list(self.secret_word) 
+            self.hide_display() 
  
     </span><span class="s0">def </span><span class="s1">guess_turns(self): 
         letter_entered = </span><span class="s0">False</span><span class="s1"> 
@@ -101,7 +108,7 @@ hangman.py</FONT>
         print(</span><span class="s2">''</span><span class="s1">) 
  
  
-Hangman() 
+GuessTheWord() 
 </span></pre>
 </body>
 </html>
