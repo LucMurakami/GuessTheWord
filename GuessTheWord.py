@@ -43,6 +43,9 @@ class GuessTheWord:
             print('\nWould you like to play GuessTheWord again? (Yes or No)')
             player_input = input()
             misses = 0
+            self.secret_word = self.make_word()
+            self.display = list(self.secret_word)
+            self.hide_display()
 
     def guess_turns(self):
         letter_entered = False
