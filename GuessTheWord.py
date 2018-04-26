@@ -2,7 +2,7 @@ import random
 import json
 
 
-class Hangman:
+class GuessTheWord:
 
     def __init__(self):
         self.secret_word = self.make_word()
@@ -16,7 +16,7 @@ class Hangman:
         return data['data'][word_num]
 
     def play_game(self):
-        print('Would you like to play Hangman? (Yes or No)')
+        print('Would you like to play GuessTheWord? (Yes or No)')
         player_input = input()
         misses = 0
 
@@ -40,7 +40,7 @@ class Hangman:
                 print('\nSorry, the word was ' + self.secret_word + '.')
                 print('Better luc next time!')
 
-            print('\nWould you like to play Hangman again? (Yes or No)')
+            print('\nWould you like to play GuessTheWord again? (Yes or No)')
             player_input = input()
             misses = 0
 
@@ -86,4 +86,4 @@ class Hangman:
         print('')
 
 
-Hangman()
+GuessTheWord()
